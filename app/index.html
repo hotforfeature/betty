@@ -3,13 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <base href="/">
   <title>BETTy</title>
 </head>
 <body ng-app="betty">
 
   <hello-world></hello-world>
+  <a href="/login">Login</a>
+  <a href="/home">Home</a>
+  <div ng-view></div>
 
   <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
   <script src="scripts/app.js"></script>
+  <script src="scripts/login/login.js"></script>
+  <script src="scripts/home/home.js"></script>
 </body>
 </html>
