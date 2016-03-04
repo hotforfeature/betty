@@ -4,14 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <base href="/">
   <title>BETTy</title>
 </head>
 <body ng-app="betty">
 
-  <a href="/login">Login</a>
-  <a href="/home">Home</a>
-  <div ng-view></div>
+  <div class="container">
+    <a href="/login">Login</a>
+    <a href="/home">Home</a>
+    <div ng-view></div>
+  </div>
 
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/angular-route/angular-route.min.js"></script>

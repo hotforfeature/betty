@@ -11,8 +11,9 @@
         this.password = '';
 
         this.login = function login() {
+          // TODO: Display loading
+
           tokenService.createToken(this.username, this.password).then(() => {
-            this.password = '';
             $location.path('/home');
           }).catch(err => {
             console.error(err);
