@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  const home = angular.module('betty/home', []);
+  const home = angular.module('betty.home', []);
 
   home.directive('homeScreen', () => {
     return {
