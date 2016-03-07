@@ -1,31 +1,14 @@
 (() => {
   'use strict';
 
-  function bettyLogin($location, tokenService) {
+  function bettyLogin() {
     return {
       restrict: 'E',
-      templateUrl: 'login/betty-login.directive.html',
+      templateUrl: 'login/betty-login.html',
       controllerAs: 'loginCtrl',
-      controller() {
-        this.username = '';
-        this.password = '';
-
-        this.login = function login() {
-          // TODO: Display loading
-
-          tokenService.createToken(this.username, this.password).then(() => {
-            $location.path('/home');
-          }).catch(err => {
-            console.error(err);
-          });
-        };
-      }
+      controller: 'BettyLoginController'
     };
   }
 
-  angular.module('betty.login').directive('bettyLogin', [
-    '$location',
-    'tokenService',
-    bettyLogin
-  ]);
+  angular.module('betty.login').directive('bettyLogin', bettyLogin);
 })();
