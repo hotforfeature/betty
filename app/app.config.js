@@ -7,9 +7,9 @@
     '$mdThemingProvider',
     ($routeProvider, $locationProvider, $mdThemingProvider) => {
       $routeProvider.when('/login', {
-        template: '<betty-login></betty-login>'
+        templateUrl: 'login/login-partial.html'
       }).when('/home', {
-        template: '<home-screen></home-screen>'
+        templateUrl: 'home/home-partial.html'
       }).otherwise({
         redirectTo: '/login'
       });
