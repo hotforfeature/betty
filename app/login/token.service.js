@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  function tokenService($q, $http) {
+  function tokenService($q, $http, $location) {
     return {
       currentToken: null,
 
@@ -26,6 +26,11 @@
             }
           }).catch(reject);
         });
+      },
+
+      logout() {
+        this.currentToken = null;
+        $location.path('/login');
       }
     };
   }
@@ -33,6 +38,7 @@
   angular.module('betty.login').factory('tokenService', [
     '$q',
     '$http',
+    '$location',
     tokenService
   ]);
 })();
