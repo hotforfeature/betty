@@ -5,6 +5,9 @@
     return {
       restrict: 'E',
       templateUrl: 'home/betty-overview.html',
+      scope: {
+        student: '<'
+      },
       controllerAs: 'overviewCtrl',
       controller: 'BettyOverviewController'
     };
