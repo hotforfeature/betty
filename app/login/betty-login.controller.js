@@ -7,8 +7,6 @@
     this.loading = false;
 
     this.login = function login() {
-      // TODO: Display loading
-
       this.loading = true;
       tokenService.createToken(this.username, this.password).then(() => {
         this.loading = false;
