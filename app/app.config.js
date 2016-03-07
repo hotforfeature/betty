@@ -14,8 +14,6 @@
         redirectTo: '/login'
       });
 
-      $locationProvider.html5Mode(true);
-
       const maroon = $mdThemingProvider.extendPalette('red', {
         500: '#A00000'
       });
