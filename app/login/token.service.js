@@ -1,12 +1,12 @@
 (() => {
   'use strict';
 
-  function tokenService($http) {
+  function tokenService($q, $http) {
     return {
       currentToken: null,
 
       createToken(username, password) {
-        return new Promise((resolve, reject) => {
+        return new $q((resolve, reject) => {
           $http.get('https://www.pshschoir.com/betty/rest/tokens.php', {
             params: {
               user: username,
@@ -31,6 +31,7 @@
   }
 
   angular.module('betty.login').factory('tokenService', [
+    '$q',
     '$http',
     tokenService
   ]);

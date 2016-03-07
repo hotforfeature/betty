@@ -4,14 +4,17 @@
   function BettyLoginController($location, tokenService) {
     this.username = '';
     this.password = '';
+    this.loading = false;
 
     this.login = function login() {
       // TODO: Display loading
 
+      this.loading = true;
       tokenService.createToken(this.username, this.password).then(() => {
-        // FIXME: Why the delay?
+        this.loading = false;
         $location.path('/home');
       }).catch(err => {
+        this.loading = false;
         console.error(err);
       });
     };
