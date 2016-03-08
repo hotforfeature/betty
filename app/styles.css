@@ -2,11 +2,13 @@ betty-overview md-card-content > * {
   padding-bottom: 8px;
 }
 
-betty-overview .money {
+betty-overview .money,
+betty-history .positive {
   color: green;
 }
 
-betty-overview .money.negative {
+betty-overview .money.negative,
+betty-history .negative {
   color: red;
 }
 
