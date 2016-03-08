@@ -1,3 +1,6 @@
 <div ng-controller="HomeController as homeCtrl" layout="column">
   <betty-overview student="homeCtrl.student"></betty-overview>
+  <betty-card student="homeCtrl.student"></betty-card>
+
+  <betty-wait ng-show="homeCtrl.loading"></betty-wait>
 </div>

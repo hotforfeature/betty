@@ -3,10 +3,13 @@
 
   function HomeController($mdDialog, tokenService, studentService) {
     this.student = {};
+    this.loading = false;
 
     if (tokenService.isLoggedIn()) {
+      this.loading = true;
       tokenService.getStudentIdAccess().then(studentId => {
         studentService.getStudent(studentId).then(student => {
+          this.loading = false;
           this.student = student;
         }).catch(err => {
           $mdDialog.show($mdDialog.alert({
