@@ -31,11 +31,20 @@
       logout() {
         this.currentToken = null;
         $location.path('/login');
+      },
+
+      isLoggedIn() {
+        if (this.currentToken) {
+          return true;
+        } else {
+          this.logout();
+          return false;
+        }
       }
     };
   }
 
-  angular.module('betty.login').factory('tokenService', [
+  angular.module('betty.services').factory('tokenService', [
     '$q',
     '$http',
     '$location',

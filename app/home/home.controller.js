@@ -1,9 +1,16 @@
 (() => {
   'use strict';
 
-  function HomeController() {
-    this.student = 'Matt Smith';
+  function HomeController(tokenService) {
+    this.student = {};
+
+    if (tokenService.isLoggedIn()) {
+      // TODO: Retrieve student
+    }
   }
 
-  angular.module('betty.home').controller('HomeController', HomeController);
+  angular.module('betty.home').controller('HomeController', [
+    'tokenService',
+    HomeController
+  ]);
 })();
