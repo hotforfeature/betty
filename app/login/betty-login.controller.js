@@ -1,7 +1,7 @@
 (() => {
   'use strict';
 
-  function BettyLoginController($location, tokenService) {
+  function BettyLoginController($location, $mdDialog, tokenService) {
     this.username = '';
     this.password = '';
     this.loading = false;
@@ -13,13 +13,18 @@
         $location.path('/home');
       }).catch(err => {
         this.loading = false;
-        console.error(err);
+        $mdDialog.show($mdDialog.alert({
+          title: 'Error',
+          textContent: err.message,
+          ok: 'OK'
+        }));
       });
     };
   }
 
   angular.module('betty.login').controller('BettyLoginController', [
     '$location',
+    '$mdDialog',
     'tokenService',
     BettyLoginController
   ]);
