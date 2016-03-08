@@ -1,1 +1,28 @@
-<h3>Account Overview for {{student.first}} {{student.last}}</h3>
+<md-card>
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">Account Overview for {{student.first}} {{student.last}}</span>
+    </md-card-title-text>
+  </md-card-title>
+
+  <md-card-content>
+    <div layout="row">
+      <span>Balance:</span>
+      <span flex></span>
+      <span class="money" ng-class="{ 'negative': student.balance < 0 }">{{student.balance / 100 | currency}}</span>
+    </div>
+    <div layout="row" layout-align="none end">
+      <span>Next Payment:</span>
+      <span class="md-caption date" ng-show="student.nextPaymentDate">
+        on {{student.nextPaymentDate | date}}
+      </span>
+      <span flex></span>
+      <span class="money" ng-class="{ 'negative': student.nextPayment < 0 }">{{student.nextPayment / 100 | currency}}</span>
+    </div>
+  </md-card-content>
+
+  <md-card-actions layout="row" layout-align="end center">
+    <md-button class="md-primary" ng-click="overviewCtrl.showPayment()">Make Payment</md-button>
+    <md-button class="md-primary" ng-click="overviewCtrl.showFullPayment()">Pay Balance</md-button>
+  </md-card-actions>
+</md-card>

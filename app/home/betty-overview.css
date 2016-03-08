@@ -1,0 +1,15 @@
+betty-overview md-card-content > * {
+  padding-bottom: 8px;
+}
+
+betty-overview .money {
+  color: green;
+}
+
+betty-overview .money.negative {
+  color: red;
+}
+
+betty-overview .date {
+  padding-left: 8px;
+}
