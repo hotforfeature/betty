@@ -1,16 +1,28 @@
 (() => {
   'use strict';
 
-  function HomeController(tokenService) {
+  function HomeController($mdDialog, tokenService, studentService) {
     this.student = {};
 
     if (tokenService.isLoggedIn()) {
-      // TODO: Retrieve student
+      tokenService.getStudentIdAccess().then(studentId => {
+        studentService.getStudent(studentId).then(student => {
+          this.student = student;
+        }).catch(err => {
+          $mdDialog.show($mdDialog.alert({
+            title: 'Error',
+            textContent: err.message,
+            ok: 'OK'
+          }));
+        });
+      });
     }
   }
 
   angular.module('betty.home').controller('HomeController', [
+    '$mdDialog',
     'tokenService',
+    'studentService',
     HomeController
   ]);
 })();

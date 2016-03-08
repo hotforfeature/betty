@@ -2,9 +2,9 @@
   'use strict';
 
   function tokenService($q, $http, $location) {
-    return {
-      currentToken: null,
+    let _currentToken = null;
 
+    return {
       createToken(username, password) {
         return new $q((resolve, reject) => {
           $http.get('https://www.pshschoir.com/betty/rest/tokens.php', {
@@ -14,13 +14,13 @@
             }
           }).then(response => {
             if (response.data.success) {
-              this.currentToken = {
+              _currentToken = {
                 token: response.data.token,
                 studentIdAccess: response.data.studentIdAccess,
                 idAccess: response.data.idAccess
               };
 
-              resolve(this.currentToken);
+              resolve(_currentToken);
             } else {
               reject(new Error(response.data.message));
             }
@@ -28,13 +28,43 @@
         });
       },
 
+      getToken() {
+        return new $q((resolve, reject) => {
+          if (_currentToken) {
+            resolve(_currentToken.token);
+          } else {
+            reject(new Error('You must be logged in'));
+          }
+        });
+      },
+
+      getStudentIdAccess() {
+        return new $q((resolve, reject) => {
+          if (_currentToken) {
+            resolve(_currentToken.studentIdAccess);
+          } else {
+            reject(new Error('You must be logged in'));
+          }
+        });
+      },
+
+      getIdAccess() {
+        return new $q((resolve, reject) => {
+          if (_currentToken) {
+            resolve(_currentToken.idAccess);
+          } else {
+            reject(new Error('You must be logged in'));
+          }
+        });
+      },
+
       logout() {
-        this.currentToken = null;
+        _currentToken = null;
         $location.path('/login');
       },
 
       isLoggedIn() {
-        if (this.currentToken) {
+        if (_currentToken) {
           return true;
         } else {
           this.logout();
