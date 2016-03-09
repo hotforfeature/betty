@@ -1,23 +1,18 @@
 <md-card>
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-body-1 secondary-text">Account History</span>
-    </md-card-title-text>
-  </md-card-title>
-
   <md-list>
+    <md-subheader>Account History</md-subheader>
     <md-list-item class="md-2-line" ng-repeat="charge in student.charges">
       <md-icon md-font-set="material-icons" ng-class="{'negative': charge.amount < 0, 'positive': charge.amount >= 0 }">
         {{charge.amount < 0 ? 'arrow_drop_down' : 'arrow_drop_up'}}
       </md-icon>
       <div class="md-list-item-text">
-        <div layout="row" layout-align="none end">
-          <span class="md-subhead primary-text">{{charge.description}}</span>
-          <span flex></span>
-          <span class="md-caption secondary-text">{{charge.date | date}}</span>
+        <h3>{{charge.description}}</h3>
+        <p>{{charge.amount / 100 | currency}}</p>
+        <div class="md-secondary">
+          <p>{{charge.date | date}}</p>
         </div>
-        <div class="md-body-1 secondary-text">{{charge.amount / 100 | currency}}</div>
       </div>
+      <md-divider></md-divider>
     </md-list-item>
   </md-list>
 </md-card>

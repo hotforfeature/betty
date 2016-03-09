@@ -1,21 +1,20 @@
 <md-card>
-  <md-card-title>
-    <md-card-title-text>
-      <span class="md-headline">Automatic Payments</span>
-    </md-card-title-text>
-  </md-card-title>
-
-  <md-card-content layout="row">
-    <md-button class="md-icon-button" aria-label="Change card" ng-click="cardCtrl.changeCard()">
-      <md-icon md-font-set="material-icons">credit_card</md-icon>
-    </md-button>
-
-    <div layout="column">
-      <span class="md-subhead primary-text" ng-show="student.card">Card: {{student.card}}</span>
-      <span class="md-subhead primary-text" ng-hide="student.card">No Card</span>
-      <span flex></span>
-      <span class="md-body-1 secondary-text" ng-show="student.email">{{student.email}}</span>
-      <span class="md-body-1 secondary-text" ng-hide="student.email">Tap the icon to setup</span>
-    </div>
-  </md-card-content>
+  <md-list>
+    <md-subheader>Automatic Payments</md-subheader>
+    <md-list-item class="md-2-line">
+      <md-button class="md-icon-button" aria-label="Change card" ng-click="cardCtrl.changeCard()">
+        <md-icon md-font-set="material-icons">credit_card</md-icon>
+      </md-button>
+      <div class="md-list-item-text">
+        <h3>
+          <span ng-show="student.card">Card: {{student.card}}</span>
+          <span ng-hide="student.card">No Card</span>
+        </h3>
+        <p>
+          <span ng-show="student.email">{{student.email}}</span>
+          <span ng-hide="student.email">Tap the icon to setup</span>
+        </p>
+      </div>
+    </md-list-item>
+  </md-list>
 </md-card>
