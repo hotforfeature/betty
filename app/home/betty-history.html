@@ -1,7 +1,7 @@
 <md-card>
   <md-card-title>
     <md-card-title-text>
-      <span class="md-headline">History</span>
+      <span class="md-body-1 secondary-text">Account History</span>
     </md-card-title-text>
   </md-card-title>
 
@@ -12,8 +12,8 @@
           {{charge.amount < 0 ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}
         </md-icon>
         <div class="md-list-item-text">
-          <div>{{charge.description}}</div>
-          <div>{{charge.amount / 100 | currency}}</div>
+          <div class="md-subhead primary-text">{{charge.description}}</div>
+          <div class="md-body-1 secondary-text">{{charge.amount / 100 | currency}}</div>
         </div>
       </md-list-item>
     </md-list>

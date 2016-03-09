@@ -4,14 +4,22 @@ betty-overview md-card-content > * {
 
 betty-overview .money,
 betty-history .positive {
-  color: green;
+  color: #4caf50;
 }
 
 betty-overview .money.negative,
 betty-history .negative {
-  color: red;
+  color: #f44336;
 }
 
 betty-overview .date {
   padding-left: 8px;
+}
+
+.primary-text {
+  color: #212121;
+}
+
+.secondary-text {
+  color: #757575;
 }

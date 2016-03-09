@@ -11,11 +11,11 @@
     </md-button>
 
     <div layout="column">
-      <span ng-show="student.card">Card: {{student.card}}</span>
-      <span ng-hide="student.card">No Card</span>
+      <span class="md-subhead primary-text" ng-show="student.card">Card: {{student.card}}</span>
+      <span class="md-subhead primary-text" ng-hide="student.card">No Card</span>
       <span flex></span>
-      <span class="md-caption" ng-show="student.email">{{student.email}}</span>
-      <span class="md-caption" ng-hide="student.email">Tap the icon to setup</span>
+      <span class="md-body-1 secondary-text" ng-show="student.email">{{student.email}}</span>
+      <span class="md-body-1 secondary-text" ng-hide="student.email">Tap the icon to setup</span>
     </div>
   </md-card-content>
 </md-card>
