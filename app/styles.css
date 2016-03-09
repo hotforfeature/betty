@@ -16,6 +16,10 @@ betty-overview .date {
   padding-left: 8px;
 }
 
+betty-history md-list-item {
+  border-bottom: solid thin #e0e0e0;
+}
+
 .primary-text {
   color: #212121;
 }

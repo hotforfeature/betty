@@ -5,17 +5,19 @@
     </md-card-title-text>
   </md-card-title>
 
-  <md-card-content>
-    <md-list>
-      <md-list-item class="md-2-line" ng-repeat="charge in student.charges">
-        <md-icon md-font-set="material-icons" ng-class="{'negative': charge.amount < 0, 'positive': charge.amount >= 0 }">
-          {{charge.amount < 0 ? 'keyboard_arrow_down' : 'keyboard_arrow_up'}}
-        </md-icon>
-        <div class="md-list-item-text">
-          <div class="md-subhead primary-text">{{charge.description}}</div>
-          <div class="md-body-1 secondary-text">{{charge.amount / 100 | currency}}</div>
+  <md-list>
+    <md-list-item class="md-2-line" ng-repeat="charge in student.charges">
+      <md-icon md-font-set="material-icons" ng-class="{'negative': charge.amount < 0, 'positive': charge.amount >= 0 }">
+        {{charge.amount < 0 ? 'arrow_drop_down' : 'arrow_drop_up'}}
+      </md-icon>
+      <div class="md-list-item-text">
+        <div layout="row" layout-align="none end">
+          <span class="md-subhead primary-text">{{charge.description}}</span>
+          <span flex></span>
+          <span class="md-caption secondary-text">{{charge.date | date}}</span>
         </div>
-      </md-list-item>
-    </md-list>
-  </md-card-content>
+        <div class="md-body-1 secondary-text">{{charge.amount / 100 | currency}}</div>
+      </div>
+    </md-list-item>
+  </md-list>
 </md-card>
